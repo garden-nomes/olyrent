@@ -1,4 +1,8 @@
 Olyrent::Application.routes.draw do
+  resources :rentals
+  root "welcome#home"
+  match 'home',  to: 'welcome#home',  via: 'get'
+  match 'about', to: 'welcome#about', via: 'get'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
