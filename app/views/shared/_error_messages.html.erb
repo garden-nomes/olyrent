@@ -1,0 +1,10 @@
+<% if @rental.errors.any? %>
+  <div class="alert alert-danger">
+    The form contains <%= pluralize(@rental.errors.count, "error") %>.
+    <ul>
+    <% @rental.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>

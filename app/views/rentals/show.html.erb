@@ -1,2 +1,11 @@
-<h1>Rentals#show</h1>
-<p>Find me in app/views/rentals/show.html.erb</p>
+<% provide(:title, @rental.location) %>
+
+<div class="page-header">
+  <h1><%= @rental.location %> <small><%= @rental.city %>, <%= @rental.state %> <%= @rental.zip %></small></h1>
+</div>
+<p class="lead"><b><%= number_to_currency @rental.price %></b>/month &bull; <b><%= @rental.beds %></b> bedrooms, <b><%= @rental.bath %></b> bathrooms</b></p>
+<%= link_to "View Pictures", @rental.gallery if !@rental.gallery.empty? %>
+<p><%= @rental.description %></p>
+<% if !@rental.pets.empty? %>
+  <p><b>Pets:</b> <%= @rental.pets %></p>
+<% end %>

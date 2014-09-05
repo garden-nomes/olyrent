@@ -11,10 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140903171518) do
+ActiveRecord::Schema.define(version: 20140905214730) do
 
   create_table "rentals", force: true do |t|
-    t.text     "title"
     t.float    "price"
     t.text     "location"
     t.float    "beds"
@@ -22,9 +21,14 @@ ActiveRecord::Schema.define(version: 20140903171518) do
     t.text     "pets"
     t.text     "description"
     t.text     "gallery"
-    t.text     "pass_hash"
+    t.text     "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "rental_type"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.text     "utilities"
   end
 
 end

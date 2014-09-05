@@ -1,10 +1,10 @@
-<div class="navbar navbar-fixed-top navbar-inverse">
+<div class="navbar navbar-static-top navbar-inverse">
   <div class="navbar-inner">
     <div class="container">
-      <%= link_to "Olyrent", '#', class: "navbar-brand" %>
+      <%= link_to "Olyrent", root_path, class: "navbar-brand" %>
       <ul class="nav navbar-nav">
         <li><%= link_to "Post", new_rental_path %></li>
-        <li><%= link_to "Search", '#' %></li>
+        <li><%= link_to "Search", rentals_path %></li>
       </ul>
     </div>
   </div>
