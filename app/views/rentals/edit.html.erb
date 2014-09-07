@@ -1,2 +1,102 @@
-<h1>Rentals#edit</h1>
-<p>Find me in app/views/rentals/edit.html.erb</p>
+<% provide(:title, 'Edit') %>
+
+<div class="page-header">
+  <h1>Edit Rental</h1>
+</div>
+
+<%= form_for(@rental) do |f| %>
+  <%= render 'shared/error_messages' %>
+
+  <div class="row">
+    <div class="form-group col-md-7">
+      <%= f.label :location, "Street Address" %>
+      <%= f.text_field :location, class: "form-control", placeholder: "123 Something St" %>
+    </div>
+
+    <div class="form-group col-md-2">
+      <%= f.label :city, "City" %>
+      <%= f.text_field :city, class: "form-control", placeholder: "Olympia" %>
+    </div>
+
+    <div class="form-group col-md-1">
+      <%= f.label :state, "State" %>
+      <%= f.text_field :state, class: "form-control", placeholder: "WA" %>
+    </div>
+
+    <div class="form-group col-md-2">
+      <%= f.label :zip, "Zip Code" %>
+      <%= f.text_field :zip, class: "form-control", placeholder: "98502" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-md-2">
+      <%= f.label :rental_type, "Type" %>
+      <%= f.select :rental_type, RENTAL_TYPES, { include_blank: true }, { class: "form-control" } %>
+    </div>
+
+    <div class="form-group col-md-4">
+      <%= f.label :price %>
+      <div class="input-group">
+        <span class="input-group-addon">$</span>
+        <%= f.text_field :price, class: "form-control" %>
+        <span class="input-group-addon">/ month</span>
+      </div>
+    </div>
+
+    <div class="form-group col-md-3">
+      <%= f.label :beds, "Bedrooms" %>
+      <%= f.text_field :beds, class: "form-control", placeholder: "How many bedrooms?" %>
+    </div>
+
+    <div class="form-group col-md-3">
+      <%= f.label :bath, "Bathrooms" %>
+      <%= f.text_field :bath, class: "form-control", placeholder: "How many bathrooms?" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :pets %>
+    <%= f.text_field :pets, class: "form-control", placeholder: "Are pets allowed?" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :utilities %>
+    <%= f.text_field :utilities, class: "form-control", placeholder: "Who pays what utilities?" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_area :description, class: "form-control", rows: 10 %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :gallery, "Link to gallery" %>
+    <%= f.text_field :gallery, class: "form-control", placeholder: "http://" %>
+    <span class="help-block">Need a place to host your pictures? Try <a href="http://imgur.com" target="_blank">imgur</a>.</span>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-md-6">
+      <%= f.label :passcheck, "Password" %>
+      <%= f.password_field :passcheck, class: "form-control" %>
+    </div>
+  </div>
+
+  <%= submit_tag "Update Listing", class: "btn btn-large btn-primary" %>
+<% end %>
+
+<div class="header">
+  <h1>Delete Listing</h1>
+</div>
+
+<%= form_for(@rental, method: "delete") do |f| %>
+  <div class="row">
+    <div class="form-group col-md-6">
+      <%= f.label :passcheck, "Password" %>
+      <%= f.password_field :passcheck, class: "form-control" %>
+    </div>
+  </div>
+
+  <%= submit_tag "Delete Listing", class: "btn btn-danger" %>
+<% end %>

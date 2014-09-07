@@ -3,9 +3,12 @@
 <div class="page-header">
   <h1><%= @rental.location %> <small><%= @rental.city %>, <%= @rental.state %> <%= @rental.zip %></small></h1>
 </div>
-<p class="lead"><b><%= number_to_currency @rental.price %></b>/month &bull; <b><%= @rental.beds %></b> bedrooms, <b><%= @rental.bath %></b> bathrooms</b></p>
-<%= link_to "View Pictures", @rental.gallery if !@rental.gallery.empty? %>
+<p class="lead">
+  <b><%= number_to_currency @rental.price %></b>/month
+  &bull; <b><%= @rental.beds %></b> bedrooms, <b><%= @rental.bath %></b> bathrooms</b>
+  <%= raw "&bull; #{link_to "View pictures", @rental.gallery}" if !@rental.gallery.empty? %>
+</p>
 <p><%= @rental.description %></p>
-<% if !@rental.pets.empty? %>
-  <p><b>Pets:</b> <%= @rental.pets %></p>
-<% end %>
+<p><%= raw "<b>Pets:</b> #{@rental.pets}" if !@rental.pets.empty? %></p>
+<p><%= raw "<b>Utilities:</b> #{@rental.utilities}" if !@rental.utilities.empty? %></p>
+<p class="text-right small"><%= link_to "edit", edit_rental_path(@rental) %></p>
