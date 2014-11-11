@@ -2,6 +2,7 @@
   <%
     text = Array.new
     text.push(listing.location)
+    text.push(raw("<b>#{number_to_currency(listing.price)}</b>/month"))
     text.push(raw("<b>#{listing.beds}</b> bedrooms")) unless listing.beds.nil?
     text.push(raw("<b>#{listing.bath}</b> bathrooms")) unless listing.bath.nil?
     text.push(raw(link_to("Pictures", listing.gallery))) unless listing.gallery.nil?
