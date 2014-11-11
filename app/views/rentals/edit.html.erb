@@ -9,34 +9,34 @@
 
   <div class="row">
     <div class="form-group col-md-7">
-      <%= f.label :location, "Street Address" %>
+      <%= f.label :location, "Street Address*" %>
       <%= f.text_field :location, class: "form-control", placeholder: "123 Something St" %>
     </div>
 
     <div class="form-group col-md-2">
-      <%= f.label :city, "City" %>
+      <%= f.label :city, "City*" %>
       <%= f.text_field :city, class: "form-control", placeholder: "Olympia" %>
     </div>
 
     <div class="form-group col-md-1">
-      <%= f.label :state, "State" %>
+      <%= f.label :state, "State*" %>
       <%= f.text_field :state, class: "form-control", placeholder: "WA" %>
     </div>
 
     <div class="form-group col-md-2">
-      <%= f.label :zip, "Zip Code" %>
+      <%= f.label :zip, "Zip Code*" %>
       <%= f.text_field :zip, class: "form-control", placeholder: "98502" %>
     </div>
   </div>
 
   <div class="row">
     <div class="form-group col-md-2">
-      <%= f.label :rental_type, "Type" %>
+      <%= f.label :rental_type, "Type*" %>
       <%= f.select :rental_type, RENTAL_TYPES, { include_blank: true }, { class: "form-control" } %>
     </div>
 
     <div class="form-group col-md-4">
-      <%= f.label :price %>
+      <%= f.label :price, "Price*" %>
       <div class="input-group">
         <span class="input-group-addon">$</span>
         <%= f.text_field :price, class: "form-control" %>
@@ -78,13 +78,16 @@
 
   <div class="row">
     <div class="form-group col-md-6">
-      <%= f.label :passcheck, "Password" %>
+      <%= f.label :passcheck, "Password*" %>
       <%= f.password_field :passcheck, class: "form-control" %>
     </div>
   </div>
 
   <%= submit_tag "Update Listing", class: "btn btn-large btn-primary" %>
+  <p class="help-block">*Required</p>
 <% end %>
+
+<hr />
 
 <div class="header">
   <h1>Delete Listing</h1>
@@ -93,10 +96,11 @@
 <%= form_for(@rental, method: "delete") do |f| %>
   <div class="row">
     <div class="form-group col-md-6">
-      <%= f.label :passcheck, "Password" %>
+      <%= f.label :passcheck, "Password*" %>
       <%= f.password_field :passcheck, class: "form-control" %>
     </div>
   </div>
 
   <%= submit_tag "Delete Listing", class: "btn btn-danger" %>
+  <p class="help-block">*Required</p>
 <% end %>

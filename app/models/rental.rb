@@ -10,4 +10,9 @@ class Rental < ActiveRecord::Base
   validates :password, length: { minimum: 6 }, on: :create
 
   has_secure_password
+  geocoded_by :address
+  after_validation :geocode
+  def address
+    "#{self.location}, #{self.city}, #{self.state} #{self.zip}"
+  end
 end

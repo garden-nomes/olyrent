@@ -33,6 +33,10 @@ gem 'jbuilder', '~> 1.2'
 # Adds secure password functionality for the lazy
 gem 'bcrypt', '~> 3.1.7'
 
+# Easy google maps
+gem 'gmaps4rails'
+gem 'geocoder'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

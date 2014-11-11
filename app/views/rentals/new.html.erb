@@ -10,22 +10,22 @@
   <div class="row">
 
     <div class="form-group col-md-7">
-      <%= f.label :location, "Street Address" %>
+      <%= f.label :location, "Street Address*" %>
       <%= f.text_field :location, class: "form-control", placeholder: "123 Something St" %>
     </div>
 
     <div class="form-group col-md-2">
-      <%= f.label :city, "City" %>
+      <%= f.label :city, "City*" %>
       <%= f.text_field :city, class: "form-control", placeholder: "Olympia" %>
     </div>
 
     <div class="form-group col-md-1">
-      <%= f.label :state, "State" %>
+      <%= f.label :state, "State*" %>
       <%= f.text_field :state, class: "form-control", placeholder: "WA" %>
     </div>
 
     <div class="form-group col-md-2">
-      <%= f.label :zip, "Zip Code" %>
+      <%= f.label :zip, "Zip Code*" %>
       <%= f.text_field :zip, class: "form-control", placeholder: "98502" %>
     </div>
 
@@ -34,12 +34,12 @@
   <div class="row">
 
     <div class="form-group col-md-2">
-      <%= f.label :rental_type, "Type" %>
+      <%= f.label :rental_type, "Type*" %>
       <%= f.select :rental_type, RENTAL_TYPES, { include_blank: true }, { class: "form-control" } %>
     </div>
 
     <div class="form-group col-md-4">
-      <%= f.label :price %>
+      <%= f.label :price, "Price*" %>
       <div class="input-group">
         <span class="input-group-addon">$</span>
         <%= f.text_field :price, class: "form-control" %>
@@ -81,18 +81,31 @@
   </div>
 
   <div class="row">
+    <div class="form-group col-md-7">
+      <%= f.label :email %>
+      <%= f.text_field :email, class: "form-control" %>
+    </div>
+
+    <div class="form-group col-md-5">
+      <%= f.label :phone %>
+      <%= f.text_field :phone, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="row">
 
     <div class="form-group col-md-6">
-      <%= f.label :password %>
+      <%= f.label :password, "Password*" %>
       <%= f.password_field :password, class: "form-control", placeholder: "For editing and deleting posts" %>
     </div>
 
     <div class="form-group col-md-6">
-      <%= f.label :password_confirmation, "Confirm password" %>
+      <%= f.label :password_confirmation, "Confirm password*" %>
       <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Don't forget it!" %>
     </div>
 
   </div>
 
   <%= submit_tag "Post Rental", class: "btn btn-large btn-primary" %>
+  <p class="help-block">*Required</p>
 <% end %>

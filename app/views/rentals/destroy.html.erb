@@ -1,2 +1,15 @@
-<h1>Rentals#destroy</h1>
-<p>Find me in app/views/rentals/destroy.html.erb</p>
+<div class="header">
+  <h1>Delete Listing</h1>
+</div>
+
+<%= form_for(@rental, method: "delete") do |f| %>
+  <div class="row">
+    <div class="form-group col-md-6">
+      <%= f.label :passcheck, "Password*" %>
+      <%= f.password_field :passcheck, class: "form-control" %>
+    </div>
+  </div>
+
+  <%= submit_tag "Delete Listing", class: "btn btn-danger" %>
+  <p class="help-block">*Required</p>
+<% end %>
