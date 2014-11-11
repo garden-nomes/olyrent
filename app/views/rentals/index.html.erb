@@ -8,15 +8,23 @@
 
 <p class="text-center lead">
   Welcome to Olyrent, a house and apartment rental listing for the Olympia, WA community!
-  <%= link_to "Post", new_rental_path %> a listing or find one above!
+  <%= link_to "Post", new_rental_path %> a listing or find one above.
 </p>
 
 
 <script type="text/javascript">
   handler = Gmaps.build('Google');
-  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-    markers = handler.addMarkers(<%= raw @hash.to_json %>);
-    handler.bounds.extendWith(markers);
-    handler.fitMapToBounds();
-  });
+  handler.buildMap(
+    {
+      provider: {
+        center: new google.maps.LatLng(47.0482728,-122.9040216),
+        zoom: 13
+      },
+      internal: {id: 'map'}
+    },
+    function(){
+      markers = handler.addMarkers(<%= raw @hash.to_json %>);
+      handler.bounds.extendWith(markers);
+    }
+  );
 </script>

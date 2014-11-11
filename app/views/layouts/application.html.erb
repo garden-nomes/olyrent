@@ -18,10 +18,16 @@
   <%= render 'layouts/header' %>
 
   <div class="container">
+    <!--<p class="text-center">
+      <%= link_to "Map", root_path %> | <%= link_to "Post", new_rental_path %>
+    </p>-->
+
     <% flash.each do |key, value| %>
       <div class="alert alert-<%= key %>"><%= value %></div>
     <% end %>
+
     <%= yield %>
+
     <footer><%= render 'layouts/footer' %></footer>
     <%= debug params if Rails.env.development? %>
   </div>

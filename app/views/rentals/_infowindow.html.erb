@@ -1,14 +1,16 @@
-<p>
-  <%=
+<ul>
+  <%
     text = Array.new
     text.push(listing.location)
-    text.push(listing.gallery) unless listing.gallery.nil?
-    text.push("<br />")
-    text.push("<b>#{listing.beds}</b> bedrooms") unless listing.beds.nil?
-    text.push("<b>#{listing.bath}</b> bathrooms") unless listing.bath.nil?
-    text.push(link_to("Pictures", listing.gallery)) unless listing.gallery.nil?
-    raw(text.join(", "))
+    text.push(raw("<b>#{listing.beds}</b> bedrooms")) unless listing.beds.nil?
+    text.push(raw("<b>#{listing.bath}</b> bathrooms")) unless listing.bath.nil?
+    text.push(raw(link_to("Pictures", listing.gallery))) unless listing.gallery.nil?
   %>
-</p>
+<% text.each do |t| %>
+  <li><%= t %></li>
+<% end %>
+</ul>
 
-<%= link_to "View", listing %>
+<div class="text-center">
+  <%= link_to "View Listing", listing %>
+</div>
