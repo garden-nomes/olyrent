@@ -13,14 +13,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'bcrypt', '~> 3.1.7'
 gem 'gmaps4rails'
 gem 'geocoder'
-
-group :development do
-#  gem 'sqlite3'
-end
-
-group :production do
-  gem 'pg'
-end
+gem 'pg'
 
 group :doc do
   gem 'sdoc', require: false
